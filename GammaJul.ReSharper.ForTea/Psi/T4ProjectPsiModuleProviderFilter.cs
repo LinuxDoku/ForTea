@@ -13,12 +13,13 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 #endregion
+
+using System;
 using JetBrains.Annotations;
 using JetBrains.Application.changes;
 using JetBrains.DataFlow;
 using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Psi.Modules;
-using JetBrains.Util;
 
 namespace GammaJul.ReSharper.ForTea.Psi {
 
@@ -31,9 +32,9 @@ namespace GammaJul.ReSharper.ForTea.Psi {
 		[NotNull] private readonly ChangeManager _changeManager;
 		[NotNull] private readonly T4Environment _t4Environment;
 
-		public JetTuple<IProjectPsiModuleHandler, IPsiModuleDecorator> OverrideHandler(Lifetime lifetime, IProject project, IProjectPsiModuleHandler handler) {
+		public Tuple<IProjectPsiModuleHandler, IPsiModuleDecorator> OverrideHandler(Lifetime lifetime, IProject project, IProjectPsiModuleHandler handler) {
 			var t4ModuleHandler = new T4ProjectPsiModuleHandler(lifetime, handler, _changeManager, _t4Environment, project);
-			return new JetTuple<IProjectPsiModuleHandler, IPsiModuleDecorator>(t4ModuleHandler, null);
+			return new Tuple<IProjectPsiModuleHandler, IPsiModuleDecorator>(t4ModuleHandler, null);
 		}
 
 		public T4ProjectPsiModuleProviderFilter(

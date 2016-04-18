@@ -129,7 +129,7 @@ namespace GammaJul.ReSharper.ForTea {
 			
 			_components = Lazy.Of(() => new Optional<ITextTemplatingComponents>(rawVsServiceProvider.Value.GetService<STextTemplating, ITextTemplatingComponents>()), true);
 
-			int vsMajorVersion = vsEnvironmentInformation.VsVersion2.Major;
+			uint vsMajorVersion = vsEnvironmentInformation.VsVersion2.Major;
 			switch (vsMajorVersion) {
 				
 				case VsVersions.Vs2010:

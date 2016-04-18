@@ -17,7 +17,7 @@ namespace GammaJul.ReSharper.ForTea {
 
 	internal static class SupportedReSharperVersion {
 
-		internal const string Value = "10.0";
+		internal const string Value = "2016.1";
 
 	}
 
